@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frisco-frontend-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frisco-frontend
+  template:
+    metadata:
+      labels:
+        app: frisco-frontend
+    spec:
+      containers:
+        - name: frisco-frontend
+          image: imranwebstudio/frisco_fighter
+          ports:
+            - containerPort: 3000
